@@ -2,8 +2,9 @@ const Pool = require('../config/db')
 
 
 const selectAllProduct = ({limit,offset,sort,sortby}) =>{
-    return Pool.query(`SELECT * FROM product  order by ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
+    return Pool.query(`SELECT product.id, product.name, product.price,product.stock,product.image,product.rating,product.merek, catagory.name AS name_catagory  FROM product join catagory ON product.id_catagory = catagory.id  order by ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
 }
+
 
 const selectSearchProduct = (keyword) =>{
   return Pool.query(`SELECT * FROM product where name ilike '%${keyword}%' `);
