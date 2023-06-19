@@ -7,11 +7,11 @@ const selectAllProduct = ({limit,offset,sort,sortby}) =>{
 
 
 const selectSearchProduct = (keyword) =>{
-  return Pool.query(`SELECT * FROM product where name ilike '%${keyword}%' `);
+  return Pool.query(`SELECT product.id, product.name, product.price,product.stock,product.image,product.rating,product.merek, catagory.name AS name_catagory  FROM product join catagory ON product.id_catagory = catagory.id  where product.name ilike '%${keyword}%' `);
 }
 
 const selectProduct = (id) =>{
-    return Pool.query(`SELECT * FROM product WHERE id=${id}`);
+    return Pool.query(`SELECT * FROM product  WHERE id=${id}`);
 }
 
 const insertProduct = (data) =>{
