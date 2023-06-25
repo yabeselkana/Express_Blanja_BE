@@ -60,6 +60,10 @@ const {selectAll,
           return next(createError(403,`${role} not get data`))
         }
       const id = Number(req.params.id);
+      const { rowCount } = await findId(id);
+      if (!rowCount) {
+        return next(createError(403,"ID is Not Found"))
+      }
       select(id)
       .then(
         result => {

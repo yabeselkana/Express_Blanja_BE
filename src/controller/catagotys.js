@@ -59,16 +59,22 @@ const{
     },
     getDetailCatagory: async (req, res,next) => {
       const role = req.payload.role
-      //  console.log(role)
+       console.log(role)
         if(role === "reseller"){
           return next(createError(403,`${role} not get data`))
         }
-      const id = Number(req.params.id);
+
+        const id = Number(req.params.id);
+        const { rowCount } = await findId(id);
+        if (!rowCount) {
+          return next(createError(403,"ID is Not Found"))
+        }
       selectCatagory(id)
         .then((result) => {
           commonHelper.response(res, result.rows, 200, "get data success",{},role);
         })
-        .catch((err) => res.send(err));
+        .catch((err) => 
+        res.send(err));
     },
     createCatagory: async (req, res,next) => {
       const role = req.payload.role
