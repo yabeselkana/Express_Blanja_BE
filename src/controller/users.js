@@ -28,7 +28,7 @@ let usersController = {
         }
         cerate(data)
         .then((result) => {
-          commonHelper.response(res, result.rows, 201, "Register created")
+          commonHelper.response(res, data, 201, "Register created")
           
         }).catch((err) => {
           console.log(err)

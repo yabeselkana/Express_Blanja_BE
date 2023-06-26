@@ -13,10 +13,10 @@ const {selectAll,
     getAllProduct:async (req, res,next) => {
       try {
      const role = req.payload.role
-    //  console.log(role)
-      if(role === "reseller"){
-        return next(createError(403,`${role} not get data`))
-      }
+    // //  console.log(role)
+    //   if(role === "reseller"){
+    //     return next(createError(403,`${role} not get data`))
+    //   }
       const page = Number(req.query.page) || 1
       const limit = Number(req.query.limit) || 5
       const offset = (page - 1) * limit
@@ -40,11 +40,11 @@ const {selectAll,
     },
     getSearchProduct:async (req, res,next) => {
       try {
-        const role = req.payload.role
-        //  console.log(role)
-          if(role === "reseller"){
-            return next(createError(403,`${role} not get data`))
-          }
+        // const role = req.payload.role
+        // //  console.log(role)
+        //   if(role === "reseller"){
+        //     return next(createError(403,`${role} not get data`))
+        //   }
         const keyword = req.query.keyword || ""
         const result = await selectSearchProduct(keyword);
         // res.send(result)
@@ -56,9 +56,9 @@ const {selectAll,
     getDetailProduct: async (req, res,next) => {
       const role = req.payload.role
       //  console.log(role)
-        if(role === "reseller"){
-          return next(createError(403,`${role} not get data`))
-        }
+        // if(role === "reseller"){
+        //   return next(createError(403,`${role} not get data`))
+        // }
       const id = Number(req.params.id);
       const { rowCount } = await findId(id);
       if (!rowCount) {
@@ -95,6 +95,7 @@ const {selectAll,
       photo:`http://${DB_HOST}:${PORT}/img/${photo}`,
       description
     }
+    // console.log(data)
     insert(data)
       .then(
         result => commonHelper.response(res, data, 201, "Product created",{},role)

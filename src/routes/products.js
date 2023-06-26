@@ -4,6 +4,7 @@ const productController = require("../controller/products");
 const {protect} = require('../middlewares/auth')
 const upload = require('../middlewares/upload')
 const {hitCacheProductDetail,clearCacheProductDetail} = require('../middlewares/redis')
+const {validate,myCors} = require('../middlewares/common')
 
 router.get("/", protect,productController.getAllProduct)
 .get("/search/",protect, productController.getSearchProduct)
