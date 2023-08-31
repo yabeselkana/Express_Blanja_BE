@@ -8,9 +8,19 @@ const selectOrder = (id) => {
   return Pool.query(`SELECT * FROM orders WHERE id=${id}`);
 };
 
+const selectOrderbyid = (id_user) => {
+  return Pool.query(`
+  SELECT orders.id, orders.qty,orders.total_price, users.id As id_users, product.id As id_product,product.name, product.photo,product.price
+  FROM orders
+  LEFT JOIN users ON orders.id_user = users.id
+  LEFT JOIN product ON orders.id_product = product.id
+  WHERE orders.id_user = '${id_user}'
+  `);
+};
+
 const insertOrder = (data) => {
   const { id, address, qty, shipping, total_price, id_product, id_user } = data;
-  return Pool.query(`INSERT INTO orders (address,qty,shipping ,total_price,id_product,id_user) VALUES ('${address}',${qty},'${shipping}',${total_price},${id_product},${id_user})`);
+  return Pool.query(`INSERT INTO orders (address,qty,shipping ,total_price,id_product,id_user) VALUES ('${address}',${qty},'${shipping}',${total_price},${id_product},'${id_user}')`);
 };
 
 const updateOrder = (data) => {
@@ -41,6 +51,7 @@ const findId = (id) => {
 module.exports = {
   selectAllOrder,
   selectOrder,
+  selectOrderbyid,
   insertOrder,
   updateOrder,
   deleteOrder,

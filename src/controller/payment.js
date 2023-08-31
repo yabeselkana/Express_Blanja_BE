@@ -1,9 +1,9 @@
 const createError = require("http-errors");
-const { selectAllOrder, selectOrderbyid, selectOrder, insertOrder, updateOrder, deleteOrder, countData, findId } = require("../model/orders");
+const { selectAllPayment, selectPayment, selectPaymentbyid, insertPayment, updatePayment, deletePayment, countData, findId } = require("../model/payment");
 const commonHelper = require("../helper/common");
 
-let orderController = {
-  getAllOrder: async (req, res, next) => {
+let paymentController = {
+  getAllPayment: async (req, res, next) => {
     try {
       // const role = req.payload.role;
       //  console.log(role)
@@ -13,7 +13,7 @@ let orderController = {
       const offset = (page - 1) * limit;
       const sortby = req.query.sortby || "id";
       const sort = req.query.sort || "ASC";
-      const result = await selectAllOrder({ limit, offset, sort, sortby });
+      const result = await selectAllPayment({ limit, offset, sort, sortby });
       const {
         rows: [count],
       } = await countData();
@@ -31,14 +31,14 @@ let orderController = {
       console.log(error);
     }
   },
-  getDetailOrder: async (req, res, next) => {
+  getDetailPayment: async (req, res, next) => {
     const role = req.payload.role;
     //  console.log(role)
     // if (role === "reseller") {
     //   return next(createError(403, `${role} not get data`));
     // }
     const id = Number(req.params.id);
-    selectOrder(id)
+    selectPayment(id)
       .then((result) => {
         commonHelper.response(res, result.rows, 200, "get data success", {});
       })
@@ -46,31 +46,29 @@ let orderController = {
   },
   getSelectById: async (req, res) => {
     const id_user = String(req.params.id_user);
-    selectOrderbyid(id_user)
+    selectPaymentbyid(id_user)
       .then((result) => commonHelper.response(res, result.rows, 200, "get data success"))
       .catch((err) => res.send(err));
   },
-  createOrder: async (req, res, next) => {
+  createPayment: async (req, res, next) => {
     // const role = req.payload.role;
     //  console.log(role)
     // if (role === "reseller") {
     //   return next(createError(403, `${role} not get data`));
     // }
-    let { address, qty, shipping, total_price, id_product, id_user } = req.body;
+    let { qty, total_price, id_product, id_user } = req.body;
     const {
       rows: [count],
     } = await countData();
-    const id = Number(count.count);
+    const id = Number(count.count) + 1;
     const data = {
       id,
-      address,
       qty,
-      shipping,
       total_price,
       id_product,
       id_user,
     };
-    insertOrder(data)
+    insertPayment(data)
       .then((result) => {
         commonHelper.response(res, data, 201, "Product created", {});
       })
@@ -78,7 +76,7 @@ let orderController = {
         console.log(err);
       });
   },
-  updateOrder: async (req, res, next) => {
+  updatePayment: async (req, res, next) => {
     try {
       const role = req.payload.role;
       //  console.log(role)
@@ -86,27 +84,25 @@ let orderController = {
         return next(createError(403, `${role} not get data`));
       }
       const id = Number(req.params.id);
-      const { address, qty, shiping, total_price, id_product } = req.body;
+      const { qty, total_price, id_product } = req.body;
       const { rowCount } = await findId(id);
       if (!rowCount) {
         return next(createError(403, "ID is Not Found"));
       }
       const data = {
         id,
-        address,
         qty,
-        shiping,
         total_price,
         id_product,
       };
-      updateOrder(data)
+      updatePayment(data)
         .then((result) => commonHelper.response(res, data, 200, "Product updated", {}))
         .catch((err) => res.send(err));
     } catch (error) {
       console.log(error);
     }
   },
-  deleteOrder: async (req, res, next) => {
+  deletePayment: async (req, res, next) => {
     try {
       const role = req.payload.role;
       //  console.log(role)
@@ -118,7 +114,7 @@ let orderController = {
       if (!rowCount) {
         return next(createError(403, "ID is Not Found"));
       }
-      deleteOrder(id)
+      deletePayment(id)
         .then((result) => commonHelper.response(res, result.rows, 200, "Order deleted"))
         .catch((err) => res.send(err));
     } catch (error) {
@@ -127,4 +123,4 @@ let orderController = {
   },
 };
 
-module.exports = orderController;
+module.exports = paymentController;
