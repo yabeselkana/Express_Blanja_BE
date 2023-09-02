@@ -20,7 +20,7 @@ const selectPaymentbyid = (id_user) => {
 
 const insertPayment = (data) => {
   const { id, qty, total_price, id_product, id_user } = data;
-  return Pool.query(`INSERT INTO payment  (qty, ,total_price,id_product,id_user) VALUES (${qty},${total_price},${id_product},'${id_user}')`);
+  return Pool.query(`INSERT INTO payment  (qty,total_price,id_product,id_user) VALUES (${qty},${total_price},${id_product},'${id_user}')`);
 };
 
 const updatePayment = (data) => {

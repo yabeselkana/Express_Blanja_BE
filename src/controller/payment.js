@@ -68,6 +68,7 @@ let paymentController = {
       id_product,
       id_user,
     };
+    console.log(data);
     insertPayment(data)
       .then((result) => {
         commonHelper.response(res, data, 201, "Product created", {});
