@@ -5,11 +5,11 @@
   </div>
   <h3 align="center">Blanja</h3>
   <p align="center">
-    <a href="https://github.com/izaazwaskito/Blanja-BE"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/yabeselkana/backend_express.js"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://blanja-fe-khaki.vercel.app/">View Demo</a>
+    <a href="https://inquisitive-ring-bat.cyclic.cloud/">View Demo</a>
     ·
-    <a href="https://blanja-be-alpha.vercel.app/">Api Demo</a>
+    <a href="https://inquisitive-ring-bat.cyclic.cloud/">Api Demo</a>
   </p>
 </p>
 
@@ -47,13 +47,14 @@ These are the libraries and service used for building this backend API
 1. Clone this repository
 
 ```sh
-git clone https://github.com/izaazwaskito/Blanja-BE
+git clone https://github.com/yabeselkana/backend_express.js.git
+
 ```
 
 2. Change directory to markisak-be
 
 ```sh
-cd Blanja-BE
+CD backend_express.js
 ```
 
 3. Install all of the required modules
@@ -98,14 +99,14 @@ Documentation files are provided in the [docs](./docs) folder
 
 API endpoint list are also available as published postman documentation
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/27925249/2s9Y5ZvMuP)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/26301439/2s9Y5cug1n#5ba94fb2-c82b-4ff1-9fa8-3689a5ca53eb)
 
 ## Related Project
 
-:rocket: [`Backend Blanja`](https://github.com/izaazwaskito/Blanja-BE)
+:rocket: [`Backend Blanja`](https://github.com/yabeselkana/backend_express.js)
 
-:rocket: [`Frontend Blanja`](https://github.com/izaazwaskito/Blanja-FE)
+:rocket: [`Frontend Blanja`](https://github.com/yabeselkana/react_biginer)
 
-:rocket: [`Demo Blanja`](https://blanja-fe-khaki.vercel.app/)
+:rocket: [`Demo Blanja`](https://inquisitive-ring-bat.cyclic.cloud/)
 
-Project link : [https://github.com/izaazwaskito/Blanja-BE](https://github.com/izaazwaskito/Blanja-BE))
+Project link : [https://github.com/yabeselkana/backend_express.js](https://github.com/yabeselkana/backend_express.js)
