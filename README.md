@@ -1,24 +1,96 @@
-# backend_express.js
+<br />
+<p align="center">
+  <div align="center">
+    <img height="150" src="https://cdn.discordapp.com/attachments/1118733891738554480/1146038619325349898/logo-removebg-preview.png" alt="blanja" border="0"/>
+  </div>
+  <h3 align="center">Blanja</h3>
+  <p align="center">
+    <a href="https://github.com/yabeselkana/backend_express.js"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="https://inquisitive-ring-bat.cyclic.cloud/">View Demo</a>
+    ·
+    <a href="https://inquisitive-ring-bat.cyclic.cloud/">Api Demo</a>
+  </p>
+</p>
 
-new repo
+## Table of Contents
 
-# List third party module
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Installation](#installation)
+  - [Documentation](#documentation)
+  - [Related Project](#related-project)
+- [Contributors](#contributors)
+  - [Meet The Team Members](#meet-the-team-members)
 
-| Thrid Party    | npm install        |
-| -------------- | ------------------ |
-| [Express]      | npm i express      |
-| [Nodemon]      | npm i nodemon      |
-| [Morgan]       | npm i morgan       |
-| [PostgresSQL]  | npm i pg           |
-| [Dotenv]       | npm i dotenv       |
-| [CORS]         | npm i cors         |
-| [Eslint]       | npm i eslint       |
-| [Http-errors]  | npm i http-errors  |
-| [Bcrypt.js]    | npm i bcryptjs     |
-| [Uuid]         | npm i uuid         |
-| [Jsonwebtoken] | npm i jsonwebtoken |
-| [Multer]       | npm i multer       |
-| [Node-Redis]   | npm i redis        |
+# About The Project
+
+Blanja is an E-commerce website project that aims to provide an easy and convenient online shopping experience for users in Indonesia. The site offers a wide range of products, including fashion, beauty, electronics, and food and beverages.
+
+To use Blanja's services, users only need to create an account and enter their payment details. After that, users can browse products, add them to their shopping cart, and choose their preferred payment method.
+
+With all the features and security provided, Blanja is expected to provide a safe, easy, and convenient online shopping experience for users across Indonesia.
+
+## Built With
+
+These are the libraries and service used for building this backend API
+
+- [Node.js](https://nodejs.org)
+- [Express](https://expressjs.com)
+- [PostgreSQL](https://www.postgresql.org)
+- [Json Web Token](https://jwt.io)
+- [Multer](https://github.com/expressjs/multer)
+
+# Installation
+
+1. Clone this repository
+
+```sh
+git clone https://github.com/yabeselkana/backend_express.js.git
+
+```
+
+2. Change directory to markisak-be
+
+```sh
+CD backend_express.js
+```
+
+3. Install all of the required modules
+
+```sh
+npm install
+```
+
+4. Create PostgreSQL database, query are provided in [query.sql](./query.sql)
+
+5. Create and configure `.env` file in the root directory, example credentials are provided in [.env.example](./.env.example)
+
+```txt
+- Please note that this server requires Google Drive API credentials and Gmail service account
+- Otherwise API endpoint with image upload and account register won't work properly
+```
+
+6. Run this command to run the server
+
+```sh
+npm run server
+```
+
+- Or run this command for running in development environment
+
+```sh
+npm run dev
+```
+
+- Run this command for debugging and finding errors
+
+```sh
+npm run lint
+```
+
+## Documentation
 
 Documentation files are provided in the [docs](./docs) folder
 
@@ -27,27 +99,14 @@ Documentation files are provided in the [docs](./docs) folder
 
 API endpoint list are also available as published postman documentation
 
-[express]: http://expressjs.com
-[Nodemon]: https://www.npmjs.com/package/nodemon
-[Morgan]: https://www.npmjs.com/package/morgan
-[PostgresSQL]: https://node-postgres.com
-[Dotenv]: https://www.npmjs.com/package/dotenv
-[CORS]: https://www.npmjs.com/package/cors
-[Eslint]: https://eslint.org
-[Http-errors]: https://www.npmjs.com/package/http-errors
-[Bcrypt.js]: https://www.npmjs.com/package/bcryptjs
-[Uuid]: https://www.npmjs.com/package/uuid
-[Jsonwebtoken]: https://www.npmjs.com/package/jsonwebtoken
-[Multer]: https://www.npmjs.com/package/multer
-[Node-Redis]: https://www.npmjs.com/package/redis
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/26301439/2s9Y5cug1n#5ba94fb2-c82b-4ff1-9fa8-3689a5ca53eb)
 
 ## Related Project
 
-## Installation
+:rocket: [`Backend Blanja`](https://github.com/yabeselkana/backend_express.js)
 
-- npm install
-- npm run dev or npm run server
+:rocket: [`Frontend Blanja`](https://github.com/yabeselkana/react_biginer)
 
-## Debug
+:rocket: [`Demo Blanja`](https://inquisitive-ring-bat.cyclic.cloud/)
 
-- npm run lint
+Project link : [https://github.com/yabeselkana/backend_express.js](https://github.com/yabeselkana/backend_express.js)
