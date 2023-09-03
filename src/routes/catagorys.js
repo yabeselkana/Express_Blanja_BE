@@ -5,11 +5,11 @@ const upload = require("../middlewares/upload");
 const { protect } = require("../middlewares/auth");
 
 router
-  .get("/", protect, catagoryController.getAllCatagory)
-  .get("/search/", protect, catagoryController.getSearchCatagory)
-  .get("/:id", protect, catagoryController.getDetailCatagory)
-  .post("/", protect, upload, catagoryController.createCatagory)
-  .put("/:id", protect, upload, catagoryController.updateCatagory)
-  .delete("/:id", protect, catagoryController.deleteCatagory);
+  .get("/", catagoryController.getAllCatagory)
+  .get("/search/", catagoryController.getSearchCatagory)
+  .get("/:id", catagoryController.getDetailCatagory)
+  .post("/", upload, catagoryController.createCatagory)
+  .put("/:id", upload, catagoryController.updateCatagory)
+  .delete("/:id", catagoryController.deleteCatagory);
 
 module.exports = router;

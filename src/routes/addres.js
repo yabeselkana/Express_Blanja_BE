@@ -5,12 +5,12 @@ const upload = require("../middlewares/upload");
 const { protect } = require("../middlewares/auth");
 
 router
-  .get("/", protect, addressController.getAllAddres)
-  .get("/search/", protect, addressController.getSearchAddres)
-  .get("/:id", protect, addressController.getDetailAddress)
+  .get("/", addressController.getAllAddres)
+  .get("/search/", addressController.getSearchAddres)
+  .get("/:id", addressController.getDetailAddress)
   .get("/user/:id_users", addressController.getSelectById)
-  .post("/", protect, upload, addressController.createAddres)
-  .put("/:id", protect, upload, addressController.updateAddress)
-  .delete("/:id", protect, addressController.deleteAddres);
+  .post("/", upload, addressController.createAddres)
+  .put("/:id", upload, addressController.updateAddress)
+  .delete("/:id", addressController.deleteAddres);
 
 module.exports = router;

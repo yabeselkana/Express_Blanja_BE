@@ -8,10 +8,10 @@ const upload = require("../middlewares/upload");
 
 router
   .get("/", productController.getAllProduct)
-  .get("/search/", protect, productController.getSearchProduct)
-  .get("/:id", protect, productController.getDetailProduct)
-  .post("/", protect, upload, productController.createProduct)
-  .put("/:id", protect, upload, productController.updateProduct)
-  .delete("/:id", protect, productController.deleteProduct);
+  .get("/search/", productController.getSearchProduct)
+  .get("/:id", productController.getDetailProduct)
+  .post("/", upload, productController.createProduct)
+  .put("/:id", upload, productController.updateProduct)
+  .delete("/:id", productController.deleteProduct);
 
 module.exports = router;

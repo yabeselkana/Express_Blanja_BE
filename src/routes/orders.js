@@ -4,11 +4,11 @@ const orderController = require("../controller/orders");
 const { protect } = require("../middlewares/auth");
 
 router
-  .get("/", protect, orderController.getAllOrder)
-  .get("/:id", protect, orderController.getDetailOrder)
+  .get("/", orderController.getAllOrder)
+  .get("/:id", orderController.getDetailOrder)
   .get("/user/:id_user", orderController.getSelectById)
-  .post("/", protect, orderController.createOrder)
-  .put("/:id", protect, orderController.updateOrder)
-  .delete("/:id", protect, orderController.deleteOrder);
+  .post("/", orderController.createOrder)
+  .put("/:id", orderController.updateOrder)
+  .delete("/:id", orderController.deleteOrder);
 
 module.exports = router;
