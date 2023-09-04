@@ -9,7 +9,7 @@ router
   .get("/search/", addressController.getSearchAddres)
   .get("/:id", addressController.getDetailAddress)
   .get("/user/:id_users", addressController.getSelectById)
-  .post("/", upload, addressController.createAddres)
+  .post("/", protect, upload, addressController.createAddres)
   .put("/:id", upload, addressController.updateAddress)
   .delete("/:id", addressController.deleteAddres);
 

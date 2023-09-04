@@ -9,7 +9,7 @@ router
   .put("/seller/:id", upload, usersController.updateSeller)
   .put("/costomer/:id", upload, usersController.updateCostomer)
   .post("/login", usersController.login)
-  .get("/profile", usersController.profile)
+  .get("/profile", protect, usersController.profile)
   .post("/refersh-token", usersController.refreshToken);
 
 module.exports = router;

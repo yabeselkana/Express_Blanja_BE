@@ -9,6 +9,6 @@ router
   .get("/user/:id_user", orderController.getSelectById)
   .post("/", orderController.createOrder)
   .put("/:id", orderController.updateOrder)
-  .delete("/:id", orderController.deleteOrder);
+  .delete("/:id", protect, orderController.deleteOrder);
 
 module.exports = router;
